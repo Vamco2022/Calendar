@@ -7,11 +7,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-
-enum err_state {
-    NO_ENOUGH_MEMORY,
-    EVENT_IS_EMPTY,
-};
+#include "struct.h"
 
 int error_handle(enum err_state error);
 

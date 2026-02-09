@@ -4,7 +4,6 @@
 
 #include "event.h"
 
-
 EventPtr Create_An_Event(const char *Title, const char *Description, const time_t Start, const time_t End) {
     EventPtr p = malloc(sizeof(Event));
     if (p == NULL) error_handle(NO_ENOUGH_MEMORY);

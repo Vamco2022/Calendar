@@ -4,6 +4,7 @@
 
 #include "err_handle.h"
 
+
 int error_handle(enum err_state error){
     if (error == NO_ENOUGH_MEMORY ) {
         puts("Not enough memory");

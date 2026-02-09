@@ -19,7 +19,7 @@ typedef struct Time {
     int tm_isdst;
 } tm;
 
-typedef struct Event {
+typedef struct Event {  //事件的定义
     char Title[50];
     char Description[512];
     time_t StartTime;
@@ -28,12 +28,17 @@ typedef struct Event {
     bool outofdate;
 } Event,*EventPtr;
 
-enum EVENT_STATE {
+enum EVENT_STATE {  //事件的状态
     ADD, REMOVE,
 };
 
-typedef struct EventLink {
-    // 起始/ 终止
+enum err_state {
+    NO_ENOUGH_MEMORY,
+    EVENT_IS_EMPTY,
+};
+
+
+typedef struct EventLink { // 事件链接
     EventPtr event_data;
     time_t occur_time;
     enum EVENT_STATE state; // 类型：增加/ 删除
@@ -44,5 +49,6 @@ typedef struct FullEventList {
     EventListPtr start;
     EventListPtr end;
 }FullEventList,*FullEventListPtr;
+
 
 #endif //CALENDAR_STRUCT_H
