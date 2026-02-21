@@ -7,7 +7,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "struct.h"
+#include "include/struct.h"
 
 int error_handle(enum err_state error);
 

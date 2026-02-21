@@ -3,10 +3,10 @@
 #include <string.h>
 #include <time.h>
 
-#include "write_event.h"
-#include "struct.h"
-#include "err_handle.h"
-#include "event.h"
+#include "include/"
+#include "include/struct.h"
+#include "include/err_handle.h"
+#include "include/event.h"
 /* 事件的结构体：
  *   1. 事件开始时间
  *   2. 事件时长

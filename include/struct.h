@@ -6,6 +6,7 @@
 #define CALENDAR_STRUCT_H
 #include <time.h>
 #include <stdbool.h>
+#include <stdio.h>
 
 typedef struct Time {
     int tm_sec;

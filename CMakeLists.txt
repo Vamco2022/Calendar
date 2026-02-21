@@ -7,10 +7,10 @@ add_compile_options(-Wall -Wextra)
 
 add_executable(Calendar main.c
         write_event.c
-        write_event.h
-        struct.h
+        include/write_event.h
+        include/struct.h
         err_handle.c
-        err_handle.h
+        include/err_handle.h
         event.c
-        event.h
+        include/event.h
 )
