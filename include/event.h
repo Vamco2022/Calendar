@@ -6,7 +6,7 @@
 #define CALENDAR_EVENT_H
 
 #include <time.h>
-#include "include/struct.h"
+#include "struct.h"
 
 EventPtr Create_An_Event(const char *Title, const char *Description, time_t Start, time_t End);
 

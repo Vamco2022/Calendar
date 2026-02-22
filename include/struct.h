@@ -4,7 +4,7 @@
 
 #ifndef CALENDAR_STRUCT_H
 #define CALENDAR_STRUCT_H
-#include <time.h>
+
 #include <stdbool.h>
 #include <stdio.h>
 
@@ -34,8 +34,9 @@ enum EVENT_STATE {  //事件的状态
 };
 
 enum err_state {
-    NO_ENOUGH_MEMORY,
-    EVENT_IS_EMPTY,
+    NO_ENOUGH_MEMORY = 1,
+    EVENT_IS_EMPTY,  // 2
+    LIST_HEAD_IS_EMPTY,  // 3
 };
 
 
