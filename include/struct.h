@@ -7,6 +7,7 @@
 
 #include <stdbool.h>
 #include <stdio.h>
+#include <time.h>
 
 typedef struct Time {
     int tm_sec;
