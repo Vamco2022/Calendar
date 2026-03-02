@@ -10,10 +10,10 @@ add_subdirectory(Compound)
 
 # 2. Define the main executable and its source files
 add_executable(Calendar
-        main.c
-        write_event.c
-        err_handle.c
-        event.c
+        src/main.c
+        src/write_event.c
+        src/err_handle.c
+        src/event.c
 )
 
 # 3. Tell Calendar where Compound's header files are located

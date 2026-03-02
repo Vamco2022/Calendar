@@ -3,11 +3,11 @@
 #include <string.h>
 #include <time.h>
 
-#include "Compound/inc/string.h"
+#include "../Compound/inc/string.h"
 
-#include "include/struct.h"
-#include "include/err_handle.h"
-#include "include/event.h"
+#include "../include/struct.h"
+#include "../include/err_handle.h"
+#include "../include/event.h"
 /* 事件的结构体：
  *   1. 事件开始时间
  *   2. 事件时长
