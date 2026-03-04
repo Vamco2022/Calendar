@@ -3,7 +3,11 @@ project(Calendar C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_compile_options(-Wall -Wextra)
+if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+    add_compile_options(-Wall -Wextra)
+elseif(MSVC)
+    add_compile_options(/W4;/WX)
+endif()
 
 # 1. Process the Compound directory and build its targets
 add_subdirectory(Compound)
