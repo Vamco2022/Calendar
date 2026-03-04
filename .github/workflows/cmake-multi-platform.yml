@@ -86,6 +86,11 @@ jobs:
         build_type: [Debug]
     steps:
       - uses: actions/checkout@v4
+      - uses: msys2/setup-msys2@40677d36a502eb2cf0fb808cc9dec31bf6152638 # v2.28.0
+        with:
+          release: false
+          msystem: ${{matrix.sys}}
+          pacboy: cc:p cmake:p ninja:p lld:p
       - name: Configure CMake
         run: >
           cmake -B ${{ steps.strings.outputs.build-output-dir }}
