@@ -90,7 +90,7 @@ jobs:
         with:
           release: false
           msystem: ${{matrix.sys}}
-#          pacboy: cc:p cmake:p ninja:p lld:p
+          pacboy: cc:p cmake:p
       - name: Configure CMake
         run: >
           cmake -B ../build
