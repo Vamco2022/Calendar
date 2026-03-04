@@ -23,13 +23,10 @@ jobs:
       #
       # To add more build types (Release, Debug, RelWithDebInfo, etc.) customize the build_type list.
       matrix:
-        os: [ubuntu-latest, windows-latest]
-        build_type: [Release]
+        os: [ubuntu-latest]
+        build_type: [Debug]
         c_compiler: [gcc, clang]
         include:
-          - os: windows-latest
-            c_compiler: clang
-            cpp_compiler: clang++
           - os: ubuntu-latest
             c_compiler: gcc
             cpp_compiler: g++
@@ -77,3 +74,25 @@ jobs:
       # Execute tests defined by the CMake configuration. Note that --build-config is needed because the default Windows generator is a multi-config generator (Visual Studio generator).
       # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
       run: ctest --build-config ${{ matrix.build_type }}
+
+  mingw:
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: msys2 {0}
+    strategy:
+      matrix:
+        sys: [ mingw64, ucrt64 ]
+        build_type: [Debug]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure CMake
+        run: >
+          cmake -B ${{ steps.strings.outputs.build-output-dir }}
+          -DBUILD_SHARED_LIBS=ON -DCMAKE_BUILD_TYPE=Debug
+        env: { LDFLAGS: -fuse-ld=lld }
+      - name: Build
+        run: cmake --build ${{ steps.strings.outputs.build-output-dir }} --config ${{ matrix.build_type }}
+      - name: Test
+        working-directory: ${{ steps.strings.outputs.build-output-dir }}
+        run: ctest --build-config ${{ matrix.build_type }}
