@@ -85,7 +85,7 @@ jobs:
     strategy:
       matrix:
         include:
-          - { sys: mingw64, env: x86_64,type: mingw }
+          - { sys: mingw64, env: x86_64,type: gcc }
 #          - { sys: clang64, env: clang-x86_64 ,type: clang }
         build_type: [Debug]
     steps:
