@@ -96,6 +96,9 @@ jobs:
           msystem: ${{matrix.sys}}
           update: true
           install: git cmake mingw-w64-${{matrix.env}}-${{matrix.type}} ninja
+      - name: "Clone Submodule"
+        run: >
+          git clone https://github.com/Wilhelm-Lee/Compound.git
       - name: Configure CMake
         run: > 
           cmake -G Ninja -B ../build
