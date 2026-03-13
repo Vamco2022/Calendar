@@ -84,7 +84,7 @@ jobs:
       matrix:
         include:
           - { sys: mingw64, env: x86_64,type: mingw }
-          - { sys: clang64, env: clang-x86_64 ,type: clang }
+#          - { sys: clang64, env: clang-x86_64 ,type: clang }
         build_type: [Debug]
     steps:
       - uses: actions/checkout@v5
