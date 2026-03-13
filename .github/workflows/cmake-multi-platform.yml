@@ -93,12 +93,16 @@ jobs:
           release: false
           msystem: ${{matrix.sys}}
           update: true
-          install: git cmake mingw-w64-${{matrix.env}}-openssl
+          install: git cmake mingw-w64-${{matrix.env}}-openssl ninja ccacha
       - name: Configure CMake
         run: > 
           cmake -B ../build
+          -G “Ninja”
           -DCMAKE_C_COMPILER=${{matrix.type}}
-          -DBUILD_SHARED_LIBS=ON -DCMAKE_BUILD_TYPE=Debug
+          -DBUILD_SHARED_LIBS=ON 
+          -DCMAKE_C_COMPILER_LAUNCHER=ccache
+          -DCMAKE_EXE_LINKER_FLAGS="-fuse-ld=lld"
+          -DCMAKE_BUILD_TYPE=Debug
         env: { LDFLAGS: -fuse-ld=lld }
       - name: Build
         run: cmake --build ../build --config ${{ matrix.build_type }}
