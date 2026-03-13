@@ -86,7 +86,7 @@ jobs:
       matrix:
         include:
           - { sys: mingw64, env: x86_64,type: gcc }
-#          - { sys: clang64, env: clang-x86_64 ,type: clang }
+          - { sys: clang64, env: clang-x86_64 ,type: clang }
         build_type: [Debug]
     steps:
       - uses: actions/checkout@v5
@@ -95,7 +95,7 @@ jobs:
           release: false
           msystem: ${{matrix.sys}}
           update: true
-          install: git cmake mingw-w64-${{matrix.env}}-openssl ninja
+          install: git cmake mingw-w64-${{matrix.env}}-${{matrix.type}} ninja
       - name: Configure CMake
         run: > 
           cmake -G Ninja -B ../build
