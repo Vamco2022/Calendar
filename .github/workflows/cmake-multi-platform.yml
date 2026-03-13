@@ -83,7 +83,7 @@ jobs:
     strategy:
       matrix:
         include:
-          - { sys: mingw64, env: x86_64,type: gcc }
+          - { sys: mingw64, env: x86_64,type: mingw }
           - { sys: clang64, env: clang-x86_64 ,type: clang }
         build_type: [Debug]
     steps:
@@ -97,7 +97,7 @@ jobs:
       - name: Configure CMake
         run: > 
           cmake -B ../build
-          -DCMAKE_CXX_COMPILER=${{matrix.type}}
+          -DCMAKE_C_COMPILER=${{matrix.type}}
           -DBUILD_SHARED_LIBS=ON -DCMAKE_BUILD_TYPE=Debug
         env: { LDFLAGS: -fuse-ld=lld }
       - name: Build
